@@ -40,7 +40,7 @@ pipeline {
                              subject: "[JENKINS] Approval Required: IaC pipeline approval - ${currentBuild.fullDisplayName}",
                              to: 'kadaiekyiphyu@gmail.com'
                 }
-                input id: 'Approve', message: 'Approval Required: IaC pipeline approval', ok: 'Approve', submitter: 'teamlead'
+                input id: 'Approve', message: 'Approval Required: IaC pipeline approval', ok: 'Approve', submitter: 'Team-Lead'
                 sh "terraform apply --auto-approve"
             }
         }
