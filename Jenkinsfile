@@ -38,7 +38,7 @@ pipeline {
                              <a href='${blueOceanUrl}'>Blue Ocean Pipeline</a></p>
                              """,
                              subject: "[JENKINS] Approval Required: IaC pipeline approval - ${currentBuild.fullDisplayName}",
-                             to: 'hello.waiyansoe@gmail.com'
+                             to: 'kadaiekyiphyu@gmail.com'
                 }
                 input id: 'Approve', message: 'Approval Required: IaC pipeline approval', ok: 'Approve', submitter: 'teamlead'
                 sh "terraform apply --auto-approve"
