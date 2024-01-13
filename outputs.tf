@@ -1,9 +1,9 @@
-output "jenkins_master_ip" {
-  value = module.kd_instance[0].public_ip
-}
-output "jenkins_agent_ip" {
-  value = module.kd_instance[1].public_ip
-}
+# output "jenkins_master_ip" {
+#   value = module.kd_instance[0].public_ip
+# }
+# output "jenkins_agent_ip" {
+#   value = module.kd_instance[1].public_ip
+# }
 # output "database_address" {
 #   value = module.kd_rds.rds.address
 # }
