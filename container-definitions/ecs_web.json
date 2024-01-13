@@ -1,0 +1,16 @@
+[
+    {
+      "name": "ecs_web",
+      "image": "nginx",
+      "cpu": 512,
+      "memory": 2048,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ]
+    }
+  ]
+  

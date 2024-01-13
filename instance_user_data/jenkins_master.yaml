@@ -1,0 +1,31 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - openjdk-17-jre-headless
+  - wget
+
+runcmd:
+  - |
+    # Create Jenkins user
+    sudo useradd -m -s /bin/bash jenkins
+    sudo usermod -aG sudo jenkins
+    echo "jenkins:jenkins" | sudo chpasswd
+
+    # # Configure SSH
+    # sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+    # sudo systemctl restart sshd
+
+    # Install Jenkins
+    sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+      https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+    echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+      https://pkg.jenkins.io/debian-stable binary/" | sudo tee \
+      /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+    sudo apt-get update -y
+    sudo apt-get install jenkins -y
+    sudo systemctl enable --now jenkins
