@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Source') {
             steps {
-            checkout scm
+                checkout scm
             }
         }
         stage('SonarQube Analysis') {
