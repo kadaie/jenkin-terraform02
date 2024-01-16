@@ -14,10 +14,7 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            def scannerHome = tool 'SonarScanner';
-            withSonarQubeEnv() {
-            sh "${scannerHome}/bin/sonar-scanner"
-            }
+            tool name: 'Sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
         }
         stage('Terraform init') {
             steps {
