@@ -13,6 +13,12 @@ pipeline {
             checkout scm
             }
         }
+        stage('SonarQube Analysis') {
+            def scannerHome = tool 'SonarScanner';
+            withSonarQubeEnv() {
+            sh "${scannerHome}/bin/sonar-scanner"
+            }
+        }
         stage('Terraform init') {
             steps {
                 sh 'terraform init'
