@@ -14,7 +14,9 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            tool name: 'Sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+            steps {
+                tool name: 'Sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                }
         }
         stage('Terraform init') {
             steps {
